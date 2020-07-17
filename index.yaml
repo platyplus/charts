@@ -1,14 +1,24 @@
 apiVersion: v1
 entries:
   hasura-plus:
-    - apiVersion: v1
-      appVersion: "1.0"
-      created: "2020-07-17T10:54:58.188419+02:00"
-      description: Hasura & Hasura Backend Plus Helm chart for Kubernetes
-      digest: ec3306619f65d09138c485b86fc11f36c707408f5b5c6c52c1e6a1a9a1c4050d
-      icon: https://raw.githubusercontent.com/hasura/graphql-engine/master/assets/brand/hasura_icon_blue.svg
-      name: hasura-plus
-      urls:
-        - http://charts.platyplus.io/hasura-plus-0.1.0.tgz
-      version: 0.1.0
-generated: "2020-07-17T10:54:58.180681+02:00"
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: "2020-07-17T12:00:52.198769+02:00"
+    description: Hasura & Hasura Backend Plus Helm chart for Kubernetes
+    digest: 001496f4cc651e087ffd3236b7131860fe0242579b5fd8ea00514a5c87a8bf57
+    icon: https://raw.githubusercontent.com/hasura/graphql-engine/master/assets/brand/hasura_icon_blue.svg
+    name: hasura-plus
+    urls:
+    - https://charts.platyplus.io/hasura-plus-0.1.0.tgz
+    version: 0.1.0
+  tilehuria:
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: "2020-07-17T12:00:52.217113+02:00"
+    description: Tilehuria Helm chart for Kubernetes
+    digest: 578a742cee761af91e7b9888d91a82d35c105a344c16a4385bae845c7900e956
+    name: tilehuria
+    urls:
+    - https://charts.platyplus.io/tilehuria-0.1.0.tgz
+    version: 0.1.0
+generated: "2020-07-17T12:00:52.190268+02:00"
