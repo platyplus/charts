@@ -13,4 +13,8 @@ helm repo update
 
 ### {{ chart }}
 
+#### {{ chart[0] }}
+
+#### {{ chart[1] }}
+
 {% endfor %}
