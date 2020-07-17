@@ -1,1 +1,3 @@
-# charts
+# PlatyPlus Helm Charts
+
+## How to install

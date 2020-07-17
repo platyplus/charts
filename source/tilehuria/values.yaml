@@ -1,6 +1,8 @@
 # email: pilou@platyplus.io
 # digitalOceanToken: <digital ocean token>
 # letsencrypt: production # staging or production
+hasura-plus:
+  enabled: true
 
 global:
   # hostname: tilehuria.platyplus.io    
@@ -14,7 +16,6 @@ frontend:
     enabled: true
 
 minio:
-  enabled: true
   defaultBuckets: tilehuria
   # accessKey: 
   #   password: <minio-access-key>
@@ -28,24 +29,16 @@ rabbitmq:
   #   password: <secret-rabbitmq-password>
 
 postgresql:
-  enabled: true
-  image:
-    tag: 12.3.0
   postgresqlDatabase: tilehuria
   # postgresqlPassword: <secret-postgresql-password>
-  servicePort: 5432
 
 hasura:
-  enabled: true
   image:
     repository: platyplus/tilehuria-hasura
     tag: latest
     pullPolicy: Always
-  ingress:
-    enabled: true
   # hasuraAdminSecret: <long complicated admin key>
   jwt: 
-    algorithm: HS256
     # key: <long complicated jwt key>
   env:
     HOOKS_URL: "http://{{ .Release.Name }}-hooks"
@@ -54,11 +47,8 @@ hasura:
     EVENT_TILE_SET: "http://{{ .Release.Name }}-hooks/events/tile-set"
   
 hasura-backend-plus:
-  enabled: true
   image:
     tag: latest
-  ingress:
-    enabled: true
   env: 
     AUTO_MIGRATE: "false"
     HIBP_ENABLE: "false"

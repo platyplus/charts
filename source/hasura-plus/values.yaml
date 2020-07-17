@@ -7,7 +7,7 @@ global:
 
 minio:
   enabled: true
-  defaultBuckets: tilehuria
+  defaultBuckets: hasura-plus
   # accessKey: 
   #   password: <minio-access-key>
   # secretKey:
@@ -17,15 +17,12 @@ postgresql:
   enabled: true
   image:
     tag: 12.3.0
-  postgresqlDatabase: hasura
+  postgresqlDatabase: hasura-plus
   # postgresqlPassword: <secret-postgresql-password>
   servicePort: 5432
 
 hasura:
   enabled: true
-  image:
-    repository: platyplus/tilehuria-hasura
-    pullPolicy: Always
   ingress:
     enabled: true
   # hasuraAdminSecret: <long complicated admin key>

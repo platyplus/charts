@@ -16,3 +16,7 @@ dependencies:
     version: '8.10.13'
     repository: 'https://charts.bitnami.com/bitnami'
     condition: postgresql.enabled
+  - name: hasura-plus
+    version: '0.1.0'
+    repository: 'http://charts.platyplus.io'
+    condition: hasura-plus.enabled
