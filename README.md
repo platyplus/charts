@@ -11,10 +11,15 @@ helm repo update
 
 {% for chart in site.data.charts.entries %}
 
-### {{ chart }}
+### {{ chart[0] }}
 
-#### {{ chart[0] }}
+{% for versionChart in chart[1] %}
 
-#### {{ chart[1] }}
+#### {{ versionChart }}
+
+#### Version: {{ versionChart.version }}
+
+{{ versionChart.description}}
+{% endfor %}
 
 {% endfor %}
