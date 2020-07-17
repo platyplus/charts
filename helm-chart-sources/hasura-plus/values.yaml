@@ -1,0 +1,45 @@
+# email: pilou@platyplus.io
+# digitalOceanToken: <digital ocean token>
+# letsencrypt: production # staging or production
+
+global:
+  # hostname: tilehuria.platyplus.io    
+
+minio:
+  enabled: true
+  defaultBuckets: tilehuria
+  # accessKey: 
+  #   password: <minio-access-key>
+  # secretKey:
+  #   password: <minio-secret-key>
+
+postgresql:
+  enabled: true
+  image:
+    tag: 12.3.0
+  postgresqlDatabase: hasura
+  # postgresqlPassword: <secret-postgresql-password>
+  servicePort: 5432
+
+hasura:
+  enabled: true
+  image:
+    repository: platyplus/tilehuria-hasura
+    pullPolicy: Always
+  ingress:
+    enabled: true
+  # hasuraAdminSecret: <long complicated admin key>
+  jwt: 
+    # key: <long complicated jwt key>
+  # env:
+  
+hasura-backend-plus:
+  enabled: true
+  image:
+    tag: latest
+  ingress:
+    enabled: true
+  env: 
+    AUTO_MIGRATE: "false"
+    HIBP_ENABLE: "false"
+    JWT_CUSTOM_FIELDS: ""
