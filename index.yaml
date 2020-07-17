@@ -1,11 +1,15 @@
 apiVersion: v1
 entries:
   cert-manager:
-  - apiVersion: v1
+  - apiVersion: v2
     appVersion: v0.15.2
-    created: "2020-07-17T13:34:53.180387+02:00"
+    created: "2020-07-17T13:36:11.325795+02:00"
+    dependencies:
+    - name: cert-manager
+      repository: https://charts.jetstack.io
+      version: v0.15.2
     description: Pre-configured cert-manager
-    digest: eb6e6337412215bfc7f24ab132513699c44b18ec4f9ad313c4420e2c021f5303
+    digest: 1a98a084aba3788b1e444be79aa8807b9e15d0539eb3f0341e971c3ac0ad54b7
     name: cert-manager
     urls:
     - https://charts.platyplus.io/cert-manager-0.1.0.tgz
@@ -13,9 +17,9 @@ entries:
   hasura-plus:
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2020-07-17T13:34:53.184903+02:00"
+    created: "2020-07-17T13:36:11.330222+02:00"
     description: Hasura & Hasura Backend Plus Helm chart for Kubernetes
-    digest: 999ab8bd406ec8181c037d78a322f54a3103f7de579605877f677a607d96155d
+    digest: d9de7dd126cd87a5c7663251385759c1ef39d6ee2a53862cae9273b6f9e6025e
     icon: https://raw.githubusercontent.com/hasura/graphql-engine/master/assets/brand/hasura_icon_blue.svg
     name: hasura-plus
     urls:
@@ -24,21 +28,25 @@ entries:
   tilehuria:
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2020-07-17T13:34:53.199076+02:00"
+    created: "2020-07-17T13:36:11.343906+02:00"
     description: Tilehuria Helm chart for Kubernetes
-    digest: 4727a0ec59b0e2a17c47c2a43486e04cca3f9a1f3abb51c292d47c14d507e937
+    digest: e2143b1003ae1bf097307bc5d331fc87ec5abcaa564aa211f211efd525d074a1
     name: tilehuria
     urls:
     - https://charts.platyplus.io/tilehuria-0.1.0.tgz
     version: 0.1.0
   traefik:
-  - apiVersion: v1
+  - apiVersion: v2
     appVersion: "1.0"
-    created: "2020-07-17T13:34:53.201191+02:00"
+    created: "2020-07-17T13:36:11.345954+02:00"
+    dependencies:
+    - name: traefik
+      repository: https://containous.github.io/traefik-helm-chart
+      version: v8.9.1
     description: Pre-configured traefik
-    digest: 49202004e5fc3a91ca3c2a839562c8cc4c806653631b89697fdfa3dac15aa50c
+    digest: 182b18be5b3cb5bd6b696e73fc708c509d906d5d9982be13b8645ee3f227f345
     name: traefik
     urls:
     - https://charts.platyplus.io/traefik-0.1.0.tgz
     version: 0.1.0
-generated: "2020-07-17T13:34:53.174516+02:00"
+generated: "2020-07-17T13:36:11.319931+02:00"
