@@ -1,11 +1,21 @@
 apiVersion: v1
 entries:
+  cert-manager:
+  - apiVersion: v1
+    appVersion: v0.15.2
+    created: "2020-07-17T13:34:53.180387+02:00"
+    description: Pre-configured cert-manager
+    digest: eb6e6337412215bfc7f24ab132513699c44b18ec4f9ad313c4420e2c021f5303
+    name: cert-manager
+    urls:
+    - https://charts.platyplus.io/cert-manager-0.1.0.tgz
+    version: 0.1.0
   hasura-plus:
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2020-07-17T12:00:52.198769+02:00"
+    created: "2020-07-17T13:34:53.184903+02:00"
     description: Hasura & Hasura Backend Plus Helm chart for Kubernetes
-    digest: 001496f4cc651e087ffd3236b7131860fe0242579b5fd8ea00514a5c87a8bf57
+    digest: 999ab8bd406ec8181c037d78a322f54a3103f7de579605877f677a607d96155d
     icon: https://raw.githubusercontent.com/hasura/graphql-engine/master/assets/brand/hasura_icon_blue.svg
     name: hasura-plus
     urls:
@@ -14,11 +24,21 @@ entries:
   tilehuria:
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2020-07-17T12:00:52.217113+02:00"
+    created: "2020-07-17T13:34:53.199076+02:00"
     description: Tilehuria Helm chart for Kubernetes
-    digest: 578a742cee761af91e7b9888d91a82d35c105a344c16a4385bae845c7900e956
+    digest: 4727a0ec59b0e2a17c47c2a43486e04cca3f9a1f3abb51c292d47c14d507e937
     name: tilehuria
     urls:
     - https://charts.platyplus.io/tilehuria-0.1.0.tgz
     version: 0.1.0
-generated: "2020-07-17T12:00:52.190268+02:00"
+  traefik:
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: "2020-07-17T13:34:53.201191+02:00"
+    description: Pre-configured traefik
+    digest: 49202004e5fc3a91ca3c2a839562c8cc4c806653631b89697fdfa3dac15aa50c
+    name: traefik
+    urls:
+    - https://charts.platyplus.io/traefik-0.1.0.tgz
+    version: 0.1.0
+generated: "2020-07-17T13:34:53.174516+02:00"
