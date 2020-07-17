@@ -1,15 +1,9 @@
 dependencies:
-- name: minio
-  repository: https://charts.bitnami.com/bitnami
-  version: 3.4.13
 - name: rabbitmq
   repository: https://charts.bitnami.com/bitnami
   version: 7.4.5
-- name: postgresql
-  repository: https://charts.bitnami.com/bitnami
-  version: 8.10.13
 - name: hasura-plus
   repository: file://../hasura-plus
   version: 0.1.0
-digest: sha256:d2c4fc97463500a9edfadae1478be5f7c808baba4806e81b40bcbc7ff09eacab
-generated: "2020-07-17T11:56:14.314956+02:00"
+digest: sha256:1a9ef73ed9c3daf4eea3add0c06b9420e5e8aee652bf17e8c819f7f41a77c5ae
+generated: "2020-07-17T15:29:01.341925+02:00"
