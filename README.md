@@ -15,11 +15,10 @@ helm repo update
 
 {% for versionChart in chart[1] %}
 
-#### {{ versionChart }}
-
 #### Version: {{ versionChart.version }}
 
 {{ versionChart.description}}
+
 {% endfor %}
 
 {% endfor %}
