@@ -1,11 +1,44 @@
-# email: pilou@platyplus.io
-# digitalOceanToken: <digital ocean token>
-# letsencrypt: production # staging or production
-hasura-plus:
-  enabled: true
-
 global:
   # hostname: tilehuria.platyplus.io    
+
+hasura-plus:
+  enabled: true
+  global:
+    # hostname: tilehuria.platyplus.io    
+  # email: pilou@platyplus.io
+  # digitalOceanToken: <digital ocean token>
+  # letsencrypt: production # staging or production
+  postgresql:
+    postgresqlDatabase: tilehuria
+    # postgresqlPassword: <secret-postgresql-password>
+  minio:
+    defaultBuckets: tilehuria
+    # accessKey: 
+    #   password: <minio-access-key>
+    # secretKey:
+    #   password: <minio-secret-key>
+
+  hasura:
+    image:
+      repository: platyplus/tilehuria-hasura
+      tag: latest
+      pullPolicy: Always
+    # hasuraAdminSecret: <long complicated admin key>
+    jwt: 
+      # key: <long complicated jwt key>
+    env:
+      HOOKS_URL: "http://{{ .Release.Name }}-hooks"
+      HOOKS_REMOTE_SCHEMA: "http://{{ .Release.Name }}-hooks/graphql"
+      EVENT_AOI: "http://{{ .Release.Name }}-hooks/events/area-of-interest"
+      EVENT_TILE_SET: "http://{{ .Release.Name }}-hooks/events/tile-set"
+  
+  hasura-backend-plus:
+    image:
+      tag: latest
+    env: 
+      AUTO_MIGRATE: "false"
+      HIBP_ENABLE: "false"
+      JWT_CUSTOM_FIELDS: ""
 
 frontend:
   enabled: true
@@ -15,44 +48,12 @@ frontend:
   ingress:
     enabled: true
 
-minio:
-  defaultBuckets: tilehuria
-  # accessKey: 
-  #   password: <minio-access-key>
-  # secretKey:
-  #   password: <minio-secret-key>
 
 rabbitmq:
   enabled: true
   # auth:
   #   username: user
   #   password: <secret-rabbitmq-password>
-
-postgresql:
-  postgresqlDatabase: tilehuria
-  # postgresqlPassword: <secret-postgresql-password>
-
-hasura:
-  image:
-    repository: platyplus/tilehuria-hasura
-    tag: latest
-    pullPolicy: Always
-  # hasuraAdminSecret: <long complicated admin key>
-  jwt: 
-    # key: <long complicated jwt key>
-  env:
-    HOOKS_URL: "http://{{ .Release.Name }}-hooks"
-    HOOKS_REMOTE_SCHEMA: "http://{{ .Release.Name }}-hooks/graphql"
-    EVENT_AOI: "http://{{ .Release.Name }}-hooks/events/area-of-interest"
-    EVENT_TILE_SET: "http://{{ .Release.Name }}-hooks/events/tile-set"
-  
-hasura-backend-plus:
-  image:
-    tag: latest
-  env: 
-    AUTO_MIGRATE: "false"
-    HIBP_ENABLE: "false"
-    JWT_CUSTOM_FIELDS: ""
 
 hooks:
   enabled: true

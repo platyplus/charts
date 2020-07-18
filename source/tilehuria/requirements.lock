@@ -6,4 +6,4 @@ dependencies:
   repository: file://../hasura-plus
   version: 0.1.0
 digest: sha256:1a9ef73ed9c3daf4eea3add0c06b9420e5e8aee652bf17e8c819f7f41a77c5ae
-generated: "2020-07-17T15:29:01.341925+02:00"
+generated: "2020-07-18T08:57:39.377568+02:00"

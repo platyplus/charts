@@ -27,6 +27,7 @@ hasura:
     enabled: true
   # hasuraAdminSecret: <long complicated admin key>
   jwt: 
+    # algorithm: HS256
     # key: <long complicated jwt key>
   # env:
   
