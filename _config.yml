@@ -3,4 +3,3 @@ exclude:
   - source
 title: Platyplus Helm Charts
 description: Helm Chart Repository for Platyplus applications
-permalink: /:path/:basename
