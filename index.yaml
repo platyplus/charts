@@ -3,21 +3,49 @@ entries:
   cert-manager:
   - apiVersion: v2
     appVersion: v0.15.2
-    created: "2020-07-17T13:36:11.325795+02:00"
+    created: "2020-07-19T21:05:43.080097+02:00"
     dependencies:
     - name: cert-manager
       repository: https://charts.jetstack.io
       version: v0.15.2
     description: Pre-configured cert-manager
-    digest: 1a98a084aba3788b1e444be79aa8807b9e15d0539eb3f0341e971c3ac0ad54b7
+    digest: a96599bf9f4b31e7491a1ff381d7f15e4876c43624193f33e71233eb90aa5e48
     name: cert-manager
     urls:
     - https://charts.platyplus.io/cert-manager-0.1.0.tgz
     version: 0.1.0
+  hasura:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2020-07-19T21:05:43.082749+02:00"
+    dependencies:
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 8.10.13
+    description: Hasura GraphQl Engine
+    digest: b5eafc92229b7982063218336158227e789076b44ed79c2d7fa4eee488ac35c2
+    icon: https://raw.githubusercontent.com/hasura/graphql-engine/master/assets/brand/hasura_icon_blue.svg
+    name: hasura
+    type: application
+    urls:
+    - https://charts.platyplus.io/hasura-0.1.0.tgz
+    version: 0.1.0
+  hasura-backend-plus:
+  - apiVersion: v1
+    appVersion: 2.0.0
+    created: "2020-07-19T21:05:43.088258+02:00"
+    description: Hasura Backend Plus
+    digest: da6af2b724b6f50233c2531540f877b843bc5c165a8a6c73971d0da082e75511
+    icon: https://nhost.github.io/hasura-backend-plus/logo.png
+    name: hasura-backend-plus
+    urls:
+    - https://charts.platyplus.io/hasura-backend-plus-0.1.0.tgz
+    version: 0.1.0
   hasura-plus:
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2020-07-17T13:36:11.330222+02:00"
+    created: "2020-07-19T21:05:43.092493+02:00"
     description: Hasura & Hasura Backend Plus Helm chart for Kubernetes
     digest: d9de7dd126cd87a5c7663251385759c1ef39d6ee2a53862cae9273b6f9e6025e
     icon: https://raw.githubusercontent.com/hasura/graphql-engine/master/assets/brand/hasura_icon_blue.svg
@@ -28,9 +56,9 @@ entries:
   tilehuria:
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2020-07-17T13:36:11.343906+02:00"
+    created: "2020-07-19T21:05:43.103881+02:00"
     description: Tilehuria Helm chart for Kubernetes
-    digest: e2143b1003ae1bf097307bc5d331fc87ec5abcaa564aa211f211efd525d074a1
+    digest: aa3d46a739013fb54c54fa8bb22c3d552f6132811d38422683cb1b397b4fc2e6
     name: tilehuria
     urls:
     - https://charts.platyplus.io/tilehuria-0.1.0.tgz
@@ -38,15 +66,15 @@ entries:
   traefik:
   - apiVersion: v2
     appVersion: "1.0"
-    created: "2020-07-17T13:36:11.345954+02:00"
+    created: "2020-07-19T21:05:43.105119+02:00"
     dependencies:
     - name: traefik
       repository: https://containous.github.io/traefik-helm-chart
       version: v8.9.1
     description: Pre-configured traefik
-    digest: 182b18be5b3cb5bd6b696e73fc708c509d906d5d9982be13b8645ee3f227f345
+    digest: 931b5cc14d2450e37808785d6e8100e2f19d8983ef4ac24cb134832a957565ad
     name: traefik
     urls:
     - https://charts.platyplus.io/traefik-0.1.0.tgz
     version: 0.1.0
-generated: "2020-07-17T13:36:11.319931+02:00"
+generated: "2020-07-19T21:05:43.074578+02:00"

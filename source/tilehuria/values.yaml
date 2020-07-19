@@ -1,16 +1,19 @@
-global:
-  # hostname: tilehuria.platyplus.io    
+# global:
+  # hostname: example.com   
 
-hasura-plus:
+hasura-backend-plus:
   enabled: true
-  global:
-    # hostname: tilehuria.platyplus.io    
-  # email: pilou@platyplus.io
-  # digitalOceanToken: <digital ocean token>
-  # letsencrypt: production # staging or production
-  postgresql:
-    postgresqlDatabase: tilehuria
-    # postgresqlPassword: <secret-postgresql-password>
+  image:
+    tag: latest
+  env: 
+    AUTO_MIGRATE: "false"
+    HIBP_ENABLE: "false"
+    JWT_CUSTOM_FIELDS: ""
+
+  # cert:
+    # email: pilou@platyplus.io
+    # digitalOceanToken: <digital ocean token>
+    # letsencrypt: production # staging or production
   minio:
     defaultBuckets: tilehuria
     # accessKey: 
@@ -24,22 +27,18 @@ hasura-plus:
       tag: latest
       pullPolicy: Always
     # hasuraAdminSecret: <long complicated admin key>
-    jwt: 
-      # key: <long complicated jwt key>
+    # jwt: 
+    #   key: <long complicated jwt key>
+    #   algorithm: HS256
+    postgresql:
+      postgresqlDatabase: tilehuria
+      # postgresqlPassword: <secret-postgresql-password>
     env:
       HOOKS_URL: "http://{{ .Release.Name }}-hooks"
       HOOKS_REMOTE_SCHEMA: "http://{{ .Release.Name }}-hooks/graphql"
       EVENT_AOI: "http://{{ .Release.Name }}-hooks/events/area-of-interest"
       EVENT_TILE_SET: "http://{{ .Release.Name }}-hooks/events/tile-set"
   
-  hasura-backend-plus:
-    image:
-      tag: latest
-    env: 
-      AUTO_MIGRATE: "false"
-      HIBP_ENABLE: "false"
-      JWT_CUSTOM_FIELDS: ""
-
 frontend:
   enabled: true
   image:
@@ -47,7 +46,6 @@ frontend:
     pullPolicy: Always
   ingress:
     enabled: true
-
 
 rabbitmq:
   enabled: true

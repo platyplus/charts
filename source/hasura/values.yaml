@@ -1,14 +1,26 @@
-# Default values for hasura-backend-plus.
+# hostname: example.com # Will add an hasura. prefix
+
+# Default values for hasura.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
-
+jwt:
+  algorithm: HS256
+  
 replicaCount: 1
 
 image:
-  repository: nhost/hasura-backend-plus
+  repository: hasura/graphql-engine
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: ""
+  tag: latest
+
+postgresql:
+  enabled: true
+  image:
+    tag: 12.3.0
+  postgresqlDatabase: hasura
+  # postgresqlPassword: <secret-postgresql-password>
+  servicePort: 5432
 
 imagePullSecrets: []
 nameOverride: ""
@@ -25,10 +37,12 @@ serviceAccount:
 
 podAnnotations: {}
 
-podSecurityContext: {}
+podSecurityContext:
+  {}
   # fsGroup: 2000
 
-securityContext: {}
+securityContext:
+  {}
   # capabilities:
   #   drop:
   #   - ALL
@@ -44,7 +58,8 @@ ingress:
   enabled: true
   tls: false
 
-resources: {}
+resources:
+  {}
   # We usually recommend not to specify default resources and to leave this as a conscious
   # choice for the user. This also increases chances charts run on environments with little
   # resources, such as Minikube. If you do want to specify resources, uncomment the following
@@ -68,3 +83,4 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+

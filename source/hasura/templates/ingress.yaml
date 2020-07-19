@@ -1,6 +1,6 @@
 {{- if .Values.ingress.enabled -}}
 {{- $fullName := include "hasura.fullname" . -}}
-{{- $hostname := required ".Values.global.hostname is required" .Values.global.hostname -}}
+{{- $hostname := include "hostname" . -}}
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:

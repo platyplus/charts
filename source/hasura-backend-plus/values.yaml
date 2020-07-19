@@ -1,16 +1,51 @@
-# Default values for hasura.
-# This is a YAML-formatted file.
-# Declare variables to be passed into your templates.
-jwt:
-  algorithm: HS256
-  
-replicaCount: 1
-
 image:
-  repository: hasura/graphql-engine
+  repository: nhost/hasura-backend-plus
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: latest
+
+ingress:
+  enabled: true
+  # tls: false
+
+env: 
+  AUTO_MIGRATE: "false"
+  HIBP_ENABLE: "false"
+  JWT_CUSTOM_FIELDS: ""
+
+
+cert:
+  # email: admin@example.com
+  # digitalOceanToken: <digital ocean token>
+  letsencrypt: production # staging or production
+
+global:
+  hostname: example.com
+
+minio:
+  enabled: true
+  defaultBuckets: hasura-plus
+  # accessKey: 
+  #   password: <minio-access-key>
+  # secretKey:
+  #   password: <minio-secret-key>
+
+hasura:
+  enabled: true
+  ingress:
+    enabled: true
+  # hasuraAdminSecret: <long complicated admin key>
+  # jwt: 
+    # algorithm: HS256
+    # key: <long complicated jwt key>
+  # env:
+  postgresql:
+    enabled: true
+    postgresqlDatabase: hasura-backend-plus
+    # postgresqlPassword: <secret-postgresql-password>
+
+  
+replicaCount: 1
 
 imagePullSecrets: []
 nameOverride: ""
@@ -27,12 +62,10 @@ serviceAccount:
 
 podAnnotations: {}
 
-podSecurityContext:
-  {}
+podSecurityContext: {}
   # fsGroup: 2000
 
-securityContext:
-  {}
+securityContext: {}
   # capabilities:
   #   drop:
   #   - ALL
@@ -44,12 +77,7 @@ service:
   type: ClusterIP
   port: 80
 
-ingress:
-  enabled: true
-  tls: false
-
-resources:
-  {}
+resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
   # choice for the user. This also increases chances charts run on environments with little
   # resources, such as Minikube. If you do want to specify resources, uncomment the following
@@ -73,4 +101,5 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
 

@@ -8,7 +8,7 @@ dependencies:
     version: '7.4.5'
     repository: 'https://charts.bitnami.com/bitnami'
     condition: rabbitmq.enabled
-  - name: hasura-plus
+  - name: hasura-backend-plus
     version: '0.1.0'
-    repository: 'file://../hasura-plus'
-    condition: hasura-plus.enabled
+    repository: 'file://../hasura-backend-plus'
+    condition: hasura-backend-plus.enabled

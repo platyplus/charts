@@ -1,5 +1,6 @@
 {{- if .Values.ingress.enabled -}}
 {{- $fullName := include "frontend.fullname" . -}}
+{{- $hostname := include "hostname" . -}}
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
@@ -10,7 +11,7 @@ spec:
     - web
   routes:
     - kind: Rule
-      match: "Host(`{{ .Values.global.hostname }}`) && PathPrefix(`/`)"
+      match: "Host(`{{ $hostname }}`) && PathPrefix(`/`)"
       services:
         - name: {{ $fullName }}
           port: 80
@@ -25,7 +26,7 @@ spec:
     - websecure
   routes:
     - kind: Rule
-      match: "Host(`{{ .Values.global.hostname }}`) && PathPrefix(`/`)"
+      match: "Host(`{{ $hostname }}`) && PathPrefix(`/`)"
       services:
         - name: {{ $fullName }}
           port: 80

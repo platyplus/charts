@@ -1,0 +1,14 @@
+{{- $hostname := include "hostname" .  -}}
+apiVersion: cert-manager.io/v1alpha2
+kind: Certificate
+metadata:
+  name: {{ .Release.Name }}-cert
+spec:
+  commonName: {{ $hostname }}
+  secretName: {{ .Release.Name }}-cert
+  dnsNames:
+    - {{ $hostname }}
+    - "*.{{ $hostname }}"
+  issuerRef:
+    name: "letsencrypt-{{ .Values.cert.environment | default "production" }}"
+    kind: ClusterIssuer
