@@ -9,7 +9,7 @@ helm repo update
 
 {% for chart in site.data.charts.entries %}
 
-## {{ chart[0] }}
+## [{{ chart[0] }}](source/{{ chart[0] }})
 
 {% for versionChart in chart[1] %}
 
