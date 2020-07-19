@@ -9,8 +9,9 @@ helm repo update
 
 {% for chart in site.data.charts.entries %}
 
-## [{{ chart[0] }}](https://github.com/platyplus/charts/tree/master/source/{{ chart[0] }})
+## [{{ chart[0] }}](source/{{ chart[0] }})
 
+[Source on GitHub](https://github.com/platyplus/charts/tree/master/source/{{ chart[0] }})
 {% for versionChart in chart[1] %}
 
 ### Version: {{ versionChart.version }}
