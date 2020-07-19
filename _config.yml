@@ -1,5 +1,5 @@
 theme: jekyll-theme-minimal
-exclude:
-  - source
+# exclude:
+#   - source
 title: Platyplus Helm Charts
 description: Helm Chart Repository for Platyplus applications
