@@ -12,6 +12,7 @@ helm repo update
 ## [{{ chart[0] }}](source/{{ chart[0] }})
 
 [Source on GitHub](https://github.com/platyplus/charts/tree/master/source/{{ chart[0] }})
+
 {% for versionChart in chart[1] %}
 
 ### Version: {{ versionChart.version }}
