@@ -9,7 +9,7 @@ helm repo update
 
 {% for chart in site.data.charts.entries %}
 
-## [{{ chart[0] }}](source/{{ chart[0] | relative_url }})
+## [{{ chart[0] }}](source{{ chart[0] | relative_url }})
 
 [Source on GitHub](https://github.com/platyplus/charts/tree/master/source/{{ chart[0] }}/README.html)
 

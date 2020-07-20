@@ -11,10 +11,10 @@ Also, we can't use a single if because lazy evaluation is not an option
 {{- if .Values.global }}
     {{- if .Values.global.hostname }}
         {{- printf "%s" .Values.global.hostname -}}
-    {{- else -}}
+    {{- else }}
         {{- printf "%s" required "Valid hostname is required" .Values.hostname -}}
     {{- end -}}
-{{- else -}}
+{{- else }}
     {{- printf "%s" required "Valid hostname is required" .Values.hostname -}}
 {{- end -}}
 {{- end -}}

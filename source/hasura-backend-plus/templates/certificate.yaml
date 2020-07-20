@@ -8,7 +8,13 @@ spec:
   secretName: {{ .Release.Name }}-cert
   dnsNames:
     - {{ $hostname }}
-    - "*.{{ $hostname }}"
+    - hasura.{{ $hostname }}
+    - hbp.{{ $hostname }}
+  {{- if .Values.global.subdomains }}
+    {{- range $subdomain := .Values.global.subdomains }}
+    - "{{ $subdomain }}.{{ $hostname }}"
+    {{- end }}
+  {{- end }}
   issuerRef:
     name: "letsencrypt-{{ .Values.cert.environment | default "production" }}"
     kind: ClusterIssuer

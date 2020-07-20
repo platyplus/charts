@@ -1,4 +1,6 @@
 theme: jekyll-theme-minimal
+include:
+  - source/**/*.md
 # exclude:
 #   - source
 title: Platyplus Helm Charts

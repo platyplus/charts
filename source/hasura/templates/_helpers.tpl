@@ -11,10 +11,10 @@ Also, we can't use a single if because lazy evaluation is not an option
 {{- if .Values.global }}
     {{- if .Values.global.hostname }}
         {{- printf "%s" .Values.global.hostname -}}
-    {{- else -}}
+    {{- else }}
         {{- printf "%s" required "Valid hostname is required" .Values.hostname -}}
-    {{- end -}}
-{{- else -}}
+    {{- end }}
+{{- else }}
         {{- printf "%s" required "Valid hostname is required" .Values.hostname -}}
 {{- end -}}
 {{- end -}}
@@ -31,10 +31,10 @@ Also, we can't use a single if because lazy evaluation is not an option
 {{- if .Values.jwt }}
     {{- if .Values.jwt.key }}
         {{- printf "%s" .Values.jwt.key -}}
-    {{- else -}}
+    {{- else }}
         {{- fail "jwt key is required" -}}
     {{- end -}}
-{{- else -}}
+{{- else }}
     {{- fail "jwt key is required" -}}
 {{- end -}}
 {{- end -}}
@@ -51,10 +51,10 @@ Also, we can't use a single if because lazy evaluation is not an option
 {{- if .Values.jwt }}
     {{- if .Values.jwt.algorithm }}
         {{- printf "%s" .Values.jwt.algorithm -}}
-    {{- else -}}
+    {{- else }}
         {{- printf "HS256" -}}
     {{- end -}}
-{{- else -}}
+{{- else }}
     {{- printf "HS256" -}}
 {{- end -}}
 {{- end -}}
