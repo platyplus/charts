@@ -1,3 +1,7 @@
+---
+title: Platyplus Helm Charts
+---
+
 # Installation
 
 ```sh
