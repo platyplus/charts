@@ -1,4 +1,4 @@
-# Platyplus Helm Charts
+# Installation
 
 ```sh
 helm repo add platyplus https://charts.platyplus.io
