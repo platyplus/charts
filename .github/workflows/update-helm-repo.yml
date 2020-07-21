@@ -10,11 +10,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Package
-        uses: WyriHaximus/github-action-helm3@v1
+        uses: WyriHaximus/github-action-helm3@v2
         with:
           exec: helm package source/*
       - name: Index
-        uses: WyriHaximus/github-action-helm3@v1
+        uses: WyriHaximus/github-action-helm3@v2
         with:
           exec: helm repo index --url https://charts.platyplus.io .
       - name: Commit
