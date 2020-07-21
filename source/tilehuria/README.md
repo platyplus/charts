@@ -20,4 +20,4 @@ helm install tilehuria tilehuria \
 
 ## Configuration
 
-Please have a look at the Helm Chart source for further configuration
+Please have a look at the [Helm Chart source](https://github.com/platyplus/charts/tree/master/source/tilehuria) for further configuration.

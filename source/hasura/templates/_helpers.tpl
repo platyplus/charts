@@ -77,25 +77,6 @@ Return the jwt algorithm
 {{- include $template (dict "Chart" (dict "Name" $subchart) "Values" (index $dot.Values $subchart) "Release" $dot.Release "Capabilities" $dot.Capabilities) }}
 {{- end }}
 
-
-{{/*
-Return the postgresql url
-*/}}
-{{- define "hasura.databaseSecrets" -}}
-{{- $secret := (lookup "v1" "Secret" .Release.Namespace "{{ .Release.Name }}-hasura") }}
-{{- $postgresPassword := randAlphaNum 16 }}
-{{- if $secret }}
-    {{- $postgresPassword:= (index $secret.data "postgresql-password") | b64dec }}
-{{- else }}
-    {{- if .Values.postgresql.postgresqlPassword }}
-        {{- $postgresPassword := .Values.postgresql.postgresqlPassword }}
-    {{- end -}}
-{{- end -}}
-postgresql-password: {{ $postgresPassword | b64enc | quote }}
-databaseUrl: {{ (printf "postgres://%s:%s@%s-postgresql:%d/%s" (.Values.postgresql.postgresqlUsername | default "postgres") $postgresPassword .Release.Name (.Values.postgresql.servicePort |int) (required ".Values.postgresql.postgresqlDatabase is required" .Values.postgresql.postgresqlDatabase)) | b64enc | quote }}
-{{- end -}}
-
-
 {{/*
 Expand the name of the chart.
 */}}
