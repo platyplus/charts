@@ -9,7 +9,9 @@ It will also create the default traefik routes to HBP and Hasura with a valid Le
 - A kubernetes cluster
 - Cert-manager 0.15 installed in the `cert-manager` namespace
 - Traefik 2 installed in the `traefik` namespace
-- DNS records pointing to the cluster: hbp.example.org and hasura.example.org
+- DNS records pointing to the cluster:
+  - hbp.example.org
+  - hasura.example.org
 
 ## Installation
 
