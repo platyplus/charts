@@ -3,11 +3,6 @@
 Return the proper host name
 */}}
 {{- define "hostname" -}}
-{{/*
-Helm 2.11 supports the assignment of a value to a variable defined in a different scope,
-but Helm 2.9 and 2.10 doesn't support it, so we need to implement this if-else logic.
-Also, we can't use a single if because lazy evaluation is not an option
-*/}}
 {{- if .Values.global }}
     {{- if .Values.global.hostname }}
         {{- printf "%s" .Values.global.hostname -}}
@@ -23,19 +18,40 @@ Also, we can't use a single if because lazy evaluation is not an option
 Return the jwt Key
 */}}
 {{- define "hasura.jwtKey" -}}
-{{/*
-Helm 2.11 supports the assignment of a value to a variable defined in a different scope,
-but Helm 2.9 and 2.10 doesn't support it, so we need to implement this if-else logic.
-Also, we can't use a single if because lazy evaluation is not an option
-*/}}
+{{- $secret := (lookup "v1" "Secret" .Release.Namespace "{{ .Release.Name }}-hasura") }}
 {{- if .Values.jwt }}
     {{- if .Values.jwt.key }}
-        {{- printf "%s" .Values.jwt.key -}}
+        {{- .Values.jwt.key }}
     {{- else }}
-        {{- fail "jwt key is required" -}}
+        {{- if $secret }}
+            {{- (index $secret.data "jwt.key") | b64dec }}
+        {{- else}}
+            {{- randAlphaNum 64 }}
+        {{- end -}}
     {{- end -}}
 {{- else }}
-    {{- fail "jwt key is required" -}}
+    {{- if $secret }}
+        {{- (index $secret.data "jwt.key") | b64dec }}
+    {{- else}}
+        {{- randAlphaNum 64 }}
+    {{- end -}}
+{{- end -}}
+{{- end -}}
+
+
+{{/*
+Return the jwt Key
+*/}}
+{{- define "hasura.adminSecret" -}}
+{{- if .Values.adminSecret }}
+  {{- .Values.adminSecret }}
+{{- else}}
+  {{- $secret := (lookup "v1" "Secret" .Release.Namespace "{{ .Release.Name }}-hasura") }}
+  {{- if $secret }}
+    {{- (index $secret.data "adminSecret") | b64dec }}
+  {{- else}}
+    {{- randAlphaNum 64 }}
+  {{- end -}}
 {{- end -}}
 {{- end -}}
 
@@ -43,32 +59,40 @@ Also, we can't use a single if because lazy evaluation is not an option
 Return the jwt algorithm
 */}}
 {{- define "hasura.jwtAlgo" -}}
-{{/*
-Helm 2.11 supports the assignment of a value to a variable defined in a different scope,
-but Helm 2.9 and 2.10 doesn't support it, so we need to implement this if-else logic.
-Also, we can't use a single if because lazy evaluation is not an option
-*/}}
 {{- if .Values.jwt }}
     {{- if .Values.jwt.algorithm }}
-        {{- printf "%s" .Values.jwt.algorithm -}}
+        {{- .Values.jwt.algorithm }}
     {{- else }}
-        {{- printf "HS256" -}}
+        {{- "HS256" }}
     {{- end -}}
 {{- else }}
-    {{- printf "HS256" -}}
+    {{- "HS256" }}
 {{- end -}}
 {{- end -}}
 
+{{- define "call-nested" }}
+{{- $dot := index . 0 }}
+{{- $subchart := index . 1 }}
+{{- $template := index . 2 }}
+{{- include $template (dict "Chart" (dict "Name" $subchart) "Values" (index $dot.Values $subchart) "Release" $dot.Release "Capabilities" $dot.Capabilities) }}
+{{- end }}
+
+
 {{/*
-Return the postgresql url name
+Return the postgresql url
 */}}
-{{- define "postgresql.url" -}}
-{{/*
-Helm 2.11 supports the assignment of a value to a variable defined in a different scope,
-but Helm 2.9 and 2.10 doesn't support it, so we need to implement this if-else logic.
-Also, we can't use a single if because lazy evaluation is not an option
-*/}}
-{{- (printf "postgres://%s:%s@%s-postgresql:%d/%s" (.Values.postgresql.postgresqlUsername | default "postgres") .Values.postgresql.postgresqlPassword .Release.Name (.Values.postgresql.servicePort |int) (required ".Values.postgresql.postgresqlDatabase is required" .Values.postgresql.postgresqlDatabase)) -}}
+{{- define "hasura.databaseSecrets" -}}
+{{- $secret := (lookup "v1" "Secret" .Release.Namespace "{{ .Release.Name }}-hasura") }}
+{{- $postgresPassword := randAlphaNum 16 }}
+{{- if $secret }}
+    {{- $postgresPassword:= (index $secret.data "postgresql-password") | b64dec }}
+{{- else }}
+    {{- if .Values.postgresql.postgresqlPassword }}
+        {{- $postgresPassword := .Values.postgresql.postgresqlPassword }}
+    {{- end -}}
+{{- end -}}
+postgresql-password: {{ $postgresPassword | b64enc | quote }}
+databaseUrl: {{ (printf "postgres://%s:%s@%s-postgresql:%d/%s" (.Values.postgresql.postgresqlUsername | default "postgres") $postgresPassword .Release.Name (.Values.postgresql.servicePort |int) (required ".Values.postgresql.postgresqlDatabase is required" .Values.postgresql.postgresqlDatabase)) | b64enc | quote }}
 {{- end -}}
 
 

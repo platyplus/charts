@@ -49,13 +49,13 @@ spec:
             - name: HASURA_GRAPHQL_DATABASE_URL
               valueFrom:
                 secretKeyRef:
-                  name: {{ .Release.Name }}-postgresql
-                  key: url
+                  name: {{ .Release.Name }}-hasura
+                  key: databaseUrl
             - name: HASURA_GRAPHQL_ADMIN_SECRET
               valueFrom:
                 secretKeyRef:
                   name: {{ .Release.Name }}-hasura
-                  key: hasuraAdminSecret
+                  key: adminSecret
             - name: HASURA_GRAPHQL_JWT_SECRET
               valueFrom:
                 secretKeyRef:

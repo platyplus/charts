@@ -7,7 +7,7 @@ spec:
     # You must replace this email address with your own.
     # Let's Encrypt will use this to contact you about expiring
     # certificates, and issues related to your account.
-    email: {{ .Values.cert.email }}
+    email: {{ default (printf "admin@%s" .Values.global.hostname) .Values.cert.email }}
     server: https://acme-staging-v02.api.letsencrypt.org/directory
     privateKeySecretRef:
       # Secret resource used to store the account's private key.
@@ -17,8 +17,8 @@ spec:
       {{- toYaml .Values.cert.solvers | nindent 6 }}
     {{- else }}
       - http01:
-        ingress:
-          class: traefik-cert-manager  
+          ingress:
+            class: traefik-cert-manager  
     {{- end }}
 ---
 apiVersion: cert-manager.io/v1alpha2
@@ -30,7 +30,7 @@ spec:
     # You must replace this email address with your own.
     # Let's Encrypt will use this to contact you about expiring
     # certificates, and issues related to your account.
-    email: {{ .Values.cert.email }}
+    email: {{ default (printf "admin@%s" .Values.global.hostname) .Values.cert.email }}
     server: https://acme-v02.api.letsencrypt.org/directory
     privateKeySecretRef:
       # Secret resource used to store the account's private key.
@@ -40,6 +40,6 @@ spec:
       {{- toYaml .Values.cert.solvers | nindent 6 }}
     {{- else }}
       - http01:
-        ingress:
-          class: traefik-cert-manager  
+          ingress:
+            class: traefik-cert-manager  
     {{- end }}

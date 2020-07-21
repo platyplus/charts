@@ -59,7 +59,7 @@ spec:
               valueFrom:
                 secretKeyRef:
                   name: {{ .Release.Name }}-hasura
-                  key: hasuraAdminSecret
+                  key: adminSecret
           # livenessProbe:
           #   httpGet:
           #     path: /

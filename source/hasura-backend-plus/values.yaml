@@ -1,3 +1,5 @@
+enabled: true
+
 image:
   repository: nhost/hasura-backend-plus
   pullPolicy: IfNotPresent
@@ -16,11 +18,10 @@ env:
 
 cert:
   # email: admin@example.com
-  # digitalOceanToken: <digital ocean token>
   letsencrypt: production # staging or production
 
-global:
-  hostname: example.com
+# global:
+#   hostname: example.com
 
 minio:
   enabled: true
@@ -34,7 +35,7 @@ hasura:
   enabled: true
   ingress:
     enabled: true
-  # hasuraAdminSecret: <long complicated admin key>
+  # adminSecret: <long complicated admin key>
   # jwt: 
     # algorithm: HS256
     # key: <long complicated jwt key>

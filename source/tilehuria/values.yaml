@@ -12,8 +12,8 @@ hasura-backend-plus:
 
   # cert:
     # email: pilou@platyplus.io
-    # digitalOceanToken: <digital ocean token>
     # letsencrypt: production # staging or production
+
   minio:
     defaultBuckets: tilehuria
     # accessKey: 
@@ -26,7 +26,7 @@ hasura-backend-plus:
       repository: platyplus/tilehuria-hasura
       tag: latest
       pullPolicy: Always
-    # hasuraAdminSecret: <long complicated admin key>
+    # adminSecret: <long complicated admin key>
     # jwt: 
     #   key: <long complicated jwt key>
     #   algorithm: HS256
