@@ -2,4 +2,4 @@ theme: jekyll-theme-tactile
 include:
   - source/**/*.md
 title: Platyplus Helm Charts
-description: Helm Chart Repository for Platyplus applications
+description: Helm Chart repository for Platyplus applications

@@ -3,7 +3,7 @@ entries:
   cert-manager:
   - apiVersion: v2
     appVersion: v0.15.2
-    created: "2020-07-19T21:05:43.080097+02:00"
+    created: "2020-07-21T10:15:09.571957+02:00"
     dependencies:
     - name: cert-manager
       repository: https://charts.jetstack.io
@@ -17,7 +17,7 @@ entries:
   hasura:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2020-07-19T21:05:43.082749+02:00"
+    created: "2020-07-21T10:15:09.575536+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -34,7 +34,7 @@ entries:
   hasura-backend-plus:
   - apiVersion: v1
     appVersion: 2.0.0
-    created: "2020-07-19T21:05:43.088258+02:00"
+    created: "2020-07-21T10:15:09.580845+02:00"
     description: Hasura Backend Plus
     digest: da6af2b724b6f50233c2531540f877b843bc5c165a8a6c73971d0da082e75511
     icon: https://nhost.github.io/hasura-backend-plus/logo.png
@@ -42,21 +42,10 @@ entries:
     urls:
     - https://charts.platyplus.io/hasura-backend-plus-0.1.0.tgz
     version: 0.1.0
-  hasura-plus:
-  - apiVersion: v1
-    appVersion: "1.0"
-    created: "2020-07-19T21:05:43.092493+02:00"
-    description: Hasura & Hasura Backend Plus Helm chart for Kubernetes
-    digest: d9de7dd126cd87a5c7663251385759c1ef39d6ee2a53862cae9273b6f9e6025e
-    icon: https://raw.githubusercontent.com/hasura/graphql-engine/master/assets/brand/hasura_icon_blue.svg
-    name: hasura-plus
-    urls:
-    - https://charts.platyplus.io/hasura-plus-0.1.0.tgz
-    version: 0.1.0
   tilehuria:
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2020-07-19T21:05:43.103881+02:00"
+    created: "2020-07-21T10:15:09.592788+02:00"
     description: Tilehuria Helm chart for Kubernetes
     digest: aa3d46a739013fb54c54fa8bb22c3d552f6132811d38422683cb1b397b4fc2e6
     name: tilehuria
@@ -66,7 +55,7 @@ entries:
   traefik:
   - apiVersion: v2
     appVersion: "1.0"
-    created: "2020-07-19T21:05:43.105119+02:00"
+    created: "2020-07-21T10:15:09.594639+02:00"
     dependencies:
     - name: traefik
       repository: https://containous.github.io/traefik-helm-chart
@@ -77,4 +66,4 @@ entries:
     urls:
     - https://charts.platyplus.io/traefik-0.1.0.tgz
     version: 0.1.0
-generated: "2020-07-19T21:05:43.074578+02:00"
+generated: "2020-07-21T10:15:09.563429+02:00"
