@@ -14,7 +14,9 @@ It will also create the default traefik routes to HBP and Hasura with a valid Le
 ## Installation
 
 ```sh
-helm install hbp hasura-backend-plus --repo https://charts.platyplus.io --set global.hostname=example.org
+helm install hbp hasura-backend-plus \
+    --repo https://charts.platyplus.io \
+    --set global.hostname=example.org
 ```
 
 ## Configuration
