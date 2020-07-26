@@ -1,3 +1,4 @@
+apiVersion: v2
 name: hasura-backend-plus
 description: Hasura Backend Plus
 icon: https://nhost.github.io/hasura-backend-plus/logo.png
