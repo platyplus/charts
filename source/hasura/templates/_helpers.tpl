@@ -7,10 +7,10 @@ Return the proper host name
     {{- if .Values.global.hostname }}
         {{- printf "%s" .Values.global.hostname -}}
     {{- else }}
-        {{- printf "%s" required "Valid hostname is required" .Values.hostname -}}
+        {{- printf "%s" (required "Valid hostname is required" .Values.hostname) -}}
     {{- end }}
 {{- else }}
-        {{- printf "%s" required "Valid hostname is required" .Values.hostname -}}
+        {{- printf "%s" (required "Valid hostname is required" .Values.hostname) -}}
 {{- end -}}
 {{- end -}}
 
