@@ -21,3 +21,5 @@ helm install tilehuria tilehuria \
 ## Configuration
 
 Please have a look at the [Helm Chart source](https://github.com/platyplus/charts/tree/master/source/tilehuria) for further configuration.
+
+Note that the RabbitMQ, Postgresql and Minio secrets cannot be updated through Helm once they have been set.
