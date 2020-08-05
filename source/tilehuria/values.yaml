@@ -35,7 +35,7 @@ hasura-backend-plus:
       # postgresqlPassword: <secret-postgresql-password>
     env:
       HOOKS_URL: "http://{{ .Release.Name }}-hooks"
-      HOOKS_REMOTE_SCHEMA: "http://{{ .Release.Name }}-hooks/graphql"
+      # HOOKS_REMOTE_SCHEMA: "http://{{ .Release.Name }}-hooks/graphql"
       EVENT_AOI: "http://{{ .Release.Name }}-hooks/events/area-of-interest"
       EVENT_TILE_SET: "http://{{ .Release.Name }}-hooks/events/tile-set"
   
