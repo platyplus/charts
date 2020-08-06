@@ -40,7 +40,7 @@ Return the jwt Key
 
 
 {{/*
-Return the jwt Key
+Return the hasura admin secret
 */}}
 {{- define "hasura.adminSecret" -}}
 {{- if .Values.adminSecret }}
@@ -54,6 +54,23 @@ Return the jwt Key
   {{- end -}}
 {{- end -}}
 {{- end -}}
+
+{{/*
+Return the postgresql password
+*/}}
+{{- define "hasura.postgresPassword" -}}
+{{- if .Values.postgresql.postgresqlPassword }}
+  {{- .Values.postgresql.postgresqlPassword }}
+{{- else}}
+  {{- $secret := (lookup "v1" "Secret" .Release.Namespace "{{ .Release.Name }}-postgresql") }}
+  {{- if $secret }}
+    {{- (index $secret.data "postgresql-password") | b64dec }}
+  {{- else}}
+    {{- randAlphaNum 16 }}
+  {{- end -}}
+{{- end -}}
+{{- end -}}
+
 
 {{/*
 Return the jwt algorithm
