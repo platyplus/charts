@@ -21,7 +21,7 @@ postgresql:
   postgresqlDatabase: hasura
   # postgresqlPassword: <secret-postgresql-password>
   servicePort: 5432
-  # existingSecret: "{{ .Release.Name }}-postgresql"
+  existingSecret: "{{ .Release.Name }}-postgresql"
 
 imagePullSecrets: []
 nameOverride: ""
