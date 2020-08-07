@@ -15,6 +15,9 @@ spec:
     metadata:
     {{- with .Values.podAnnotations }}
       annotations:
+        checksum/config: {{ include (print $.Template.BasePath "/config-map.yaml") . | sha256sum }}
+        checksum/hasura-secrets: {{ include (print $.Template.BasePath "/hasura-secrets.yaml") . | sha256sum }}
+        checksum/postgresql-secrets: {{ include (print $.Template.BasePath "/postgresql-secrets.yaml") . | sha256sum }}
         {{- toYaml . | nindent 8 }}
     {{- end }}
       labels:
